@@ -34,30 +34,7 @@
   }
 }
 
-
-
-/* 
-.custom-card {
-    /* Tus estilos personalizados para p-card */
-    /* background-color: #f0f0f0; */
-    /* Otros estilos */
-    /* width: 40%; */
-  /* } */
-  
-
-  /* th:hover {
-    background-color: #ce1f1f; 
-    cursor: pointer; 
-  } */
-/* .card{
-    width: 100%;
-} */
-
-/* .p-button{
-    width: 30%;
-} */
-
-/* .img-pokemon {
-  max-width: 200px;
-  height: auto;
-}  */
+.dialog{
+  min-width: 'auto'; 
+  min-height: 'auto';
+}

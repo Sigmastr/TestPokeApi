@@ -42,8 +42,9 @@
 </p-card>
 
 
-<p-dialog header="Información sobre: {{ selectedPokemonDetails.name }}" [(visible)]="visible" [style]="{ 'min-width': 'auto', 'min-height': 'auto' }" (onHide)="onDialogHide()">
+<p-dialog class="dialog" header="Información sobre: {{ selectedPokemonDetails.name }}" [(visible)]="visible"  (onHide)="onDialogHide()">
     <div *ngIf="selectedPokemonDetails">
+    
       <p>Nombre: {{ selectedPokemonDetails.name }}</p>
       <p>Peso: {{ selectedPokemonDetails.weight }}</p>
       <p>Altura: {{ selectedPokemonDetails.height }}</p>
