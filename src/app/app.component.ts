@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
   orden: number = 1;
   visible: boolean = false;
   selectedPokemonImages: any = [];
+  inicio: number = 0;
 
 
   constructor(private pokemonService: PokemonService) {
@@ -24,7 +25,7 @@ export class AppComponent implements OnInit {
   cols: any[] = [
     { field: 'name', header: 'Nombre' },
   ];
-
+  @ViewChild('carousel') carousel: any;
   busquedaGlobal(event: any) {
     if (this.dt2) {
       this.dt2.filterGlobal(event.target.value, 'contains');
@@ -65,14 +66,14 @@ export class AppComponent implements OnInit {
       this.selectedPokemonDetails = data;
       this.showDialog(this.selectedPokemonDetails);
       this.visible = true;
-      // console.log(this.selectedPokemonDetails);
     });
   }
 
   showDialog(details: any) {
+  this.visible = true;
+
     const sprites = this.selectedPokemonDetails.sprites;
     this.selectedPokemonImages = [];
-   console.log(details);
    if (sprites.front_default) {
     this.selectedPokemonImages.push(sprites.front_default);
   }
@@ -98,12 +99,14 @@ export class AppComponent implements OnInit {
     this.selectedPokemonImages.push(sprites.back_shiny_female);
   }
    
-  console.log(this.selectedPokemonImages);
-  this,this.visible = true;
   }
-  
+ 
   onDialogHide()
   {
+    if(this.carousel)
+    {
+      this.carousel.page = 0;
+    }
   }
 
 }

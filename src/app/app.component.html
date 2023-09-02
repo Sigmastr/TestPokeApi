@@ -47,7 +47,8 @@
       <p>Nombre: {{ selectedPokemonDetails.name }}</p>
       <p>Peso: {{ selectedPokemonDetails.weight }}</p>
       <p>Altura: {{ selectedPokemonDetails.height }}</p>
-      <p-carousel #carousel [value]="selectedPokemonImages" [numVisible]="2" [numScroll]="3" [circular]="false" class="carrusel" [style]="{marginTop:'5%'}" >
+      <p-carousel #carousel [value]="selectedPokemonImages" [numVisible]="2" [numScroll]="3" [circular]="false" class="carrusel"
+       [style]="{marginTop:'5%'}" >
         <ng-template let-product pTemplate="item">
           <div class="border-1 surface-border border-round m-2 text-center py-5 px-3">
             <div class="mb-3">

@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogModule } from 'primeng/dialog';
 import { CarouselModule } from 'primeng/carousel';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { CarouselModule } from 'primeng/carousel';
     HttpClientModule,
     BrowserAnimationsModule,
     DialogModule,
-    CarouselModule
+    CarouselModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
