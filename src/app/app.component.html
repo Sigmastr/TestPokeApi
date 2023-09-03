@@ -31,7 +31,6 @@
       <ng-template pTemplate="body" let-pokemon>
           <tr>
               <td>{{ pokemon.name }}</td>
-              <!-- <td>{{ pokemon.url }}</td> -->
               <td> <p-button (click)="getPokemonDetails(pokemon.url)" icon="pi pi-search" label="Mostrar Detalles"></p-button></td>
           </tr>
       </ng-template>
@@ -42,12 +41,14 @@
 </p-card>
 
 
-<p-dialog class="dialog" header="Información sobre: {{ selectedPokemonDetails.name }}" [(visible)]="visible"  (onHide)="onDialogHide()">
+<p-dialog class="dialog" header="Información sobre: {{ selectedPokemonDetails.name }}" [(visible)]="visible"  (onHide)="onDialogHide()" >
     <div *ngIf="selectedPokemonDetails">
     
       <p>Nombre: {{ selectedPokemonDetails.name }}</p>
       <p>Peso: {{ selectedPokemonDetails.weight }}</p>
       <p>Altura: {{ selectedPokemonDetails.height }}</p>
+      <p>Tipo(s): {{selectedPokemonTypes}}</p>
+      <p>Habilidades: {{selectedPokemonAbilities}}</p>
       <p-carousel #carousel [value]="selectedPokemonImages" [numVisible]="2" [numScroll]="3" [circular]="false" class="carrusel"
       >
         <ng-template let-product pTemplate="item">

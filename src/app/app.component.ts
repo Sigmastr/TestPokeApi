@@ -16,8 +16,8 @@ export class AppComponent implements OnInit {
   visible: boolean = false;
   selectedPokemonImages: any = [];
   inicio: number = 0;
-
-
+  selectedPokemonTypes: string='';
+  selectedPokemonAbilities: string='';
   constructor(private pokemonService: PokemonService) {
   }
   @ViewChild('dataTable', { static: false }) dt2: Table | undefined;
@@ -66,8 +66,43 @@ export class AppComponent implements OnInit {
       this.selectedPokemonDetails = data;
       this.showDialog(this.selectedPokemonDetails);
       this.visible = true;
+      this.getPokemonTypes();
+      this.getPokemonAbilities();
     });
+    
   }
+
+  getPokemonTypes() {
+    if (this.selectedPokemonDetails && this.selectedPokemonDetails.types) {
+      const types = this.selectedPokemonDetails.types;
+  
+      if (Array.isArray(types) && types.length > 0) {
+        try {
+          const typeNames = types.map((type: any) => type.type.name);
+          this.selectedPokemonTypes = typeNames.join(', ');
+  
+        } catch (error) {
+          console.error('Error al analizar la cadena JSON:', error);
+        }
+      } else {
+        console.error('No se encontraron tipos válidos en los detalles del Pokémon.');
+      }
+    } else {
+      this.selectedPokemonTypes = 'No hay registros';
+    }
+  }
+  
+
+  getPokemonAbilities()
+  {
+    if (this.selectedPokemonDetails.abilities) {
+      this.selectedPokemonAbilities = this.selectedPokemonDetails.abilities
+        .map((abilityObj: any) => abilityObj.ability.name)
+        .join(', ');
+    }
+  }
+  
+
 
   showDialog(details: any) {
   this.visible = true;
