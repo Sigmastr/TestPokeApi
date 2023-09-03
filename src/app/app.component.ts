@@ -64,7 +64,7 @@ export class AppComponent implements OnInit {
     const pokemonId = Number(id);
     this.pokemonService.getPokemonDetails(pokemonId).subscribe((data: any) => {
       this.selectedPokemonDetails = data;
-      this.showDialog(this.selectedPokemonDetails);
+      this.showDialog();
       this.visible = true;
       this.getPokemonTypes();
       this.getPokemonAbilities();
@@ -104,7 +104,7 @@ export class AppComponent implements OnInit {
   
 
 
-  showDialog(details: any) {
+  showDialog() {
   this.visible = true;
 
     const sprites = this.selectedPokemonDetails.sprites;
@@ -133,7 +133,7 @@ export class AppComponent implements OnInit {
   if (sprites.back_shiny_female) {
     this.selectedPokemonImages.push(sprites.back_shiny_female);
   }
-   
+   console.log(this.selectedPokemonImages)
   }
  
   onDialogHide()
