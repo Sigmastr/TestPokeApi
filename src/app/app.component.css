@@ -38,3 +38,21 @@
   min-width: auto; 
   min-height: auto;
 }
+.input-container {
+  position: relative;
+}
+
+.label {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.flex-container {
+  display: flex;
+  justify-content: space-between; 
+  gap: 20px; 
+}
+
+.flex-column {
+  flex: 1; 
+}
